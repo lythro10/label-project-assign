@@ -13,8 +13,7 @@ async function run() {
     const octokit = github.getOctokit(GITHUB_TOKEN)
 
     console.log(github.context.repo)
-    console.log(github.context.issue)
-    console.log(github.context.labels)
+    console.log(github.context.issue.number)
   } catch (error) {
     // Fail the workflow run if an error occurs
     core.setFailed(error.message)
