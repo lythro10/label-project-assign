@@ -28923,7 +28923,6 @@ async function run() {
     console.log('Hello George')
     const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
     const octokit = github.getOctokit(GITHUB_TOKEN)
-    console.log(github.event.issue.title)
   } catch (error) {
     // Fail the workflow run if an error occurs
     core.setFailed(error.message)
