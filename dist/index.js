@@ -24716,6 +24716,7 @@ const { wait } = __nccwpck_require__(1312)
 async function run() {
   try {
     console.log('Hello George')
+    console.log(github.event.issue.title)
     const ms = core.getInput('milliseconds', { required: true })
 
     // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
