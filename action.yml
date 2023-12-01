@@ -8,8 +8,6 @@ inputs:
     description: 'GitHub token'
     required: true
 
-  CAN_YOU_SEE_ME:
-    description: 'Can i get this function?'
 
 
 runs:
