@@ -7,7 +7,7 @@ inputs:
   milliseconds:
     description: 'Your input description here'
     required: true
-    default: '1000'
+    default: '2000'
 
 # Define your outputs here.
 outputs:
