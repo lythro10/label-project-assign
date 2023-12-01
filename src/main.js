@@ -7,6 +7,7 @@ const { wait } = require('./wait')
  */
 async function run() {
   try {
+    console.log('Hello George')
     const ms = core.getInput('milliseconds', { required: true })
 
     // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
