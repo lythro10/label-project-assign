@@ -1,5 +1,6 @@
 const core = require('@actions/core')
 const { wait } = require('./wait')
+const github = require('@actions/github')
 
 /**
  * The main function for the action.
@@ -8,6 +9,8 @@ const { wait } = require('./wait')
 async function run() {
   try {
     console.log('Hello George')
+    const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
+    const octokit = github.getOctokit(GITHUB_TOKEN)
     console.log(github.event.issue.title)
     const ms = core.getInput('milliseconds', { required: true })
 

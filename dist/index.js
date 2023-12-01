@@ -24708,6 +24708,7 @@ exports["default"] = _default;
 
 const core = __nccwpck_require__(2186)
 const { wait } = __nccwpck_require__(1312)
+const github = __nccwpck_require__(716)
 
 /**
  * The main function for the action.
@@ -24716,6 +24717,8 @@ const { wait } = __nccwpck_require__(1312)
 async function run() {
   try {
     console.log('Hello George')
+    const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
+    const octokit = github.getOctokit(GITHUB_TOKEN)
     console.log(github.event.issue.title)
     const ms = core.getInput('milliseconds', { required: true })
 
@@ -24762,6 +24765,14 @@ async function wait(milliseconds) {
 }
 
 module.exports = { wait }
+
+
+/***/ }),
+
+/***/ 716:
+/***/ ((module) => {
+
+module.exports = eval("require")("@actions/github");
 
 
 /***/ }),
