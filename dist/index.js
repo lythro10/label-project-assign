@@ -28926,6 +28926,8 @@ async function run() {
 
     console.log(github.context.repo)
     console.log(github.context.issue.number)
+    console.log(octokit.request.arguments)
+    console.log('Finish script')
   } catch (error) {
     // Fail the workflow run if an error occurs
     core.setFailed(error.message)
