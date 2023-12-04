@@ -14,7 +14,6 @@ async function run() {
 
     console.log(github.context.repo)
     console.log(github.context.issue.number)
-    console.log(getIssueBody())
 
     console.log('Finish script')
   } catch (error) {
@@ -45,7 +44,7 @@ async function getIssueBody() {
     }
   )
   //   Gets issue data
-  console.log(result.json())
+  console.log(result.url)
 }
 
 module.exports = {
