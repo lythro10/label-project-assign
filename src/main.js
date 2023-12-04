@@ -8,7 +8,7 @@ const { Octokit } = require('@octokit/rest')
  * @returns {Promise<void>} Resolves when the action is complete.
  */
 const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
-const octokit = github.getOctokit(GITHUB_TOKEN)
+const gitHuboctokit = github.getOctokit(GITHUB_TOKEN)
 async function run() {
   try {
     console.log('Hello George')
@@ -24,7 +24,7 @@ async function run() {
 }
 
 async function addComment() {
-  await octokit.request(
+  await gitHuboctokit.request(
     'POST /repos/{owner}/{repo}/issues/{issue_number}/comments',
     {
       owner: github.context.repo.owner,
@@ -36,7 +36,7 @@ async function addComment() {
 }
 
 async function getIssueBody() {
-  const result = await octokit.request(
+  const result = await gitHuboctokit.request(
     'GET /repos/{owner}/{repo}/issues/{issue_number}',
     {
       owner: github.context.repo.owner,
@@ -44,8 +44,8 @@ async function getIssueBody() {
       issue_number: github.context.issue.number
     }
   )
-  const tester = new Octokit()
-  const { data_one } = await tester.repos.getContent({
+  const octokit = new Octokit()
+  const { data_one } = await octokit.repos.getContent({
     owner: github.context.repo.owner,
     repo: github.context.repo.repo
   })
