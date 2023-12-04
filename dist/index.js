@@ -28918,29 +28918,33 @@ const github = __nccwpck_require__(5438)
  * The main function for the action.
  * @returns {Promise<void>} Resolves when the action is complete.
  */
+const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
+const octokit = github.getOctokit(GITHUB_TOKEN)
 async function run() {
   try {
     console.log('Hello George')
-    const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
-    const octokit = github.getOctokit(GITHUB_TOKEN)
 
     console.log(github.context.repo)
     console.log(github.context.issue.number)
-    await octokit.request(
-      'POST /repos/{owner}/{repo}/issues/{issue_number}/comments',
-      {
-        owner: github.context.repo.owner,
-        repo: github.context.repo.repo,
-        issue_number: github.context.issue.number,
-        body: 'Hi Prodromos'
-      }
-    )
+    addComment()
 
     console.log('Finish script')
   } catch (error) {
     // Fail the workflow run if an error occurs
     core.setFailed(error.message)
   }
+}
+
+async function addComment() {
+  await octokit.request(
+    'POST /repos/{owner}/{repo}/issues/{issue_number}/comments',
+    {
+      owner: github.context.repo.owner,
+      repo: github.context.repo.repo,
+      issue_number: github.context.issue.number,
+      body: 'Hi Prodromos'
+    }
+  )
 }
 
 module.exports = {
