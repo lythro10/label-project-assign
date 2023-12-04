@@ -3,6 +3,7 @@ const { wait } = require('./wait')
 const github = require('@actions/github')
 const { Octokit } = require('@octokit/rest')
 const fetch = require('node-fetch')
+const { getOctokit } = require('@actions/github')
 
 /**
  * The main function for the action.
@@ -45,7 +46,7 @@ async function getIssueBody() {
       issue_number: github.context.issue.number
     }
   )
-  const octokit = new Octokit()
+  const octokit = getOctokit(GITHUB_TOKEN, { required: true })
   const { data_one } = await octokit.repos.getContent({
     request: {
       fetch
@@ -56,9 +57,9 @@ async function getIssueBody() {
     baseUrl: process.env.GITHUB_API_URL ?? 'https://api.github.com',
     auth: GITHUB_TOKEN
   })
-  for (const item of data_one) {
-    console.log(item)
-  }
+  // for (const item of data_one) {
+  //   console.log(item)
+  // }
   //   Gets issue data
   console.log(result.data)
 }

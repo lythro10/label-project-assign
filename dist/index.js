@@ -32983,6 +32983,7 @@ const { wait } = __nccwpck_require__(1312)
 const github = __nccwpck_require__(5438)
 const { Octokit } = __nccwpck_require__(5375)
 const fetch = __nccwpck_require__(467)
+const { getOctokit } = __nccwpck_require__(5438)
 
 /**
  * The main function for the action.
@@ -33025,7 +33026,7 @@ async function getIssueBody() {
       issue_number: github.context.issue.number
     }
   )
-  const octokit = new Octokit()
+  const octokit = getOctokit(GITHUB_TOKEN, { required: true })
   const { data_one } = await octokit.repos.getContent({
     request: {
       fetch
@@ -33036,9 +33037,9 @@ async function getIssueBody() {
     baseUrl: process.env.GITHUB_API_URL ?? 'https://api.github.com',
     auth: GITHUB_TOKEN
   })
-  for (const item of data_one) {
-    console.log(item)
-  }
+  // for (const item of data_one) {
+  //   console.log(item)
+  // }
   //   Gets issue data
   console.log(result.data)
 }
