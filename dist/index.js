@@ -32989,7 +32989,7 @@ const fetch = __nccwpck_require__(467)
  * @returns {Promise<void>} Resolves when the action is complete.
  */
 const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
-const gitHuboctokit = github.getOctokit(GITHUB_TOKEN)
+const githubOctokit = github.getOctokit(GITHUB_TOKEN)
 async function run() {
   try {
     console.log('Hello George')
@@ -33005,7 +33005,7 @@ async function run() {
 }
 
 async function addComment() {
-  await gitHuboctokit.request(
+  await githubOctokit.request(
     'POST /repos/{owner}/{repo}/issues/{issue_number}/comments',
     {
       owner: github.context.repo.owner,
@@ -33017,7 +33017,7 @@ async function addComment() {
 }
 
 async function getIssueBody() {
-  const result = await gitHuboctokit.request(
+  const result = await githubOctokit.request(
     'GET /repos/{owner}/{repo}/issues/{issue_number}',
     {
       owner: github.context.repo.owner,
