@@ -2,7 +2,7 @@ const core = require('@actions/core')
 const { wait } = require('./wait')
 const github = require('@actions/github')
 const { Octokit } = require('@octokit/rest')
-const fetch = require("node-fetch");
+const fetch = require('node-fetch')
 
 /**
  * The main function for the action.
