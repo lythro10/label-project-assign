@@ -28957,7 +28957,7 @@ async function getIssueBody() {
     }
   )
   //   Gets issue data
-  console.log(result.data)
+  console.log(result.data.json())
 }
 
 module.exports = {
