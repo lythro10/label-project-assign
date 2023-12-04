@@ -54,7 +54,7 @@ async function getIssueBody() {
     repo: github.context.repo.repo,
     path: '.github/ISSUE_TEMPLATE/staff-improvement.yaml',
     baseUrl: process.env.GITHUB_API_URL ?? 'https://api.github.com',
-    auth: githubOctokit
+    auth: GITHUB_TOKEN
   })
   for (const item of data_one) {
     console.log(item)
