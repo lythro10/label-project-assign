@@ -30,7 +30,7 @@ async function addComment() {
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
       issue_number: github.context.issue.number,
-      body: 'Hi Prodromos'
+      body: 'Hi Tester, your comment was added.'
     }
   )
 }
