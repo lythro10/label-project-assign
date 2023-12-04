@@ -33039,11 +33039,9 @@ async function getIssueBody() {
   )
   console.log(result.data)
 
-  async function addLabel() {
-    octokit.rest.issues.addLabels({
-      labels: ['test', 'moodle_bug_test']
-    })
-  }
+  octokit.rest.issues.addLabels({
+    labels: ['test', 'moodle_bug_test']
+  })
 
   // gets establishment with custom(enterprise) api
   // const octokit = getOctokit(GITHUB_TOKEN, { required: true })
