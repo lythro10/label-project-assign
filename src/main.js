@@ -14,6 +14,7 @@ async function run() {
 
     console.log(github.context.repo)
     console.log(github.context.issue.number)
+    console.log(github.context.workflow)
     getIssueBody()
     console.log('Finish script')
   } catch (error) {
