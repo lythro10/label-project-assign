@@ -28926,7 +28926,16 @@ async function run() {
 
     console.log(github.context.repo)
     console.log(github.context.issue.number)
-    console.log(github.context.job)
+    console.log('eventname')
+    console.log(github.context.eventName)
+    console.log('Action')
+    console.log(github.context.action)
+    console.log('actor')
+    console.log(github.context.actor)
+    console.log('ref')
+    console.log(github.context.ref)
+    console.log('payload')
+    console.log(github.context.payload)
     getIssueBody()
     console.log('Finish script')
   } catch (error) {
