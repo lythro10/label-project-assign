@@ -21,7 +21,7 @@ async function run() {
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
         issue_number: github.context.issue.number,
-        body: 'Added from automated'
+        body: 'Hi Prodromos'
       }
     )
     console.log('Finish script')
