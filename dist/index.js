@@ -33026,17 +33026,18 @@ async function getIssueBody() {
     }
   )
   const octokit = new Octokit()
-  // const { data_one } = await octokit.repos.getContent({
-  //   request: {
-  //     fetch
-  //   },
-  //   owner: github.context.repo.owner,
-  //   repo: github.context.repo.repo,
-  //   path: '.github/ISSUE_TEMPLATE/staff-improvement.yaml'
-  // })
-  // for (const item of data_one) {
-  //   console.log(item)
-  // }
+  const { data_one } = await octokit.repos.getContent({
+    request: {
+      fetch
+    },
+    owner: github.context.repo.owner,
+    repo: github.context.repo.repo,
+    path: '.github/ISSUE_TEMPLATE/staff-improvement.yaml',
+    baseUrl: process.env.GITHUB_API_URL ?? 'https://api.github.com'
+  })
+  for (const item of data_one) {
+    console.log(item)
+  }
   //   Gets issue data
   console.log(result.data)
 }
