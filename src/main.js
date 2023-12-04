@@ -14,6 +14,11 @@ async function run() {
 
     console.log(github.context.repo)
     console.log(github.context.issue.number)
+
+    await octokit.request('GET /repos/{owner}/{repo}/issues', {
+      owner: github.context.repo.owner,
+      repo: github.context.repo.repo
+    })
     console.log('Finish script')
   } catch (error) {
     // Fail the workflow run if an error occurs
