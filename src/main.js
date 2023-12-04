@@ -14,7 +14,6 @@ async function run() {
 
     console.log(github.context.repo)
     console.log(github.context.issue.number)
-
     await octokit.request(
       'POST /repos/{owner}/{repo}/issues/{issue_number}/comments',
       {
@@ -24,6 +23,7 @@ async function run() {
         body: 'Hi Prodromos'
       }
     )
+
     console.log('Finish script')
   } catch (error) {
     // Fail the workflow run if an error occurs
