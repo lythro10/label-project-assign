@@ -44,7 +44,7 @@ async function getIssueBody() {
     }
   )
   //   Gets issue data
-  console.log(result.url)
+  console.log(result.data)
 }
 
 module.exports = {
