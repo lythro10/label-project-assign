@@ -28913,6 +28913,7 @@ function wrappy (fn, cb) {
 const core = __nccwpck_require__(2186)
 const { wait } = __nccwpck_require__(1312)
 const github = __nccwpck_require__(5438)
+const { Octokit } = __nccwpck_require__(7043)
 
 /**
  * The main function for the action.
@@ -28926,16 +28927,6 @@ async function run() {
 
     console.log(github.context.repo)
     console.log(github.context.issue.number)
-    console.log('eventname')
-    console.log(github.context.eventName)
-    console.log('Action')
-    console.log(github.context.action)
-    console.log('actor')
-    console.log(github.context.actor)
-    console.log('ref')
-    console.log(github.context.ref)
-    console.log('payload')
-    console.log(github.context.payload)
     getIssueBody()
     console.log('Finish script')
   } catch (error) {
@@ -28996,6 +28987,14 @@ async function wait(milliseconds) {
 }
 
 module.exports = { wait }
+
+
+/***/ }),
+
+/***/ 7043:
+/***/ ((module) => {
+
+module.exports = eval("require")("@octokit/rest");
 
 
 /***/ }),

@@ -1,6 +1,7 @@
 const core = require('@actions/core')
 const { wait } = require('./wait')
 const github = require('@actions/github')
+const { Octokit } = require('@octokit/rest')
 
 /**
  * The main function for the action.
@@ -14,16 +15,6 @@ async function run() {
 
     console.log(github.context.repo)
     console.log(github.context.issue.number)
-    console.log('eventname')
-    console.log(github.context.eventName)
-    console.log('Action')
-    console.log(github.context.action)
-    console.log('actor')
-    console.log(github.context.actor)
-    console.log('ref')
-    console.log(github.context.ref)
-    console.log('payload')
-    console.log(github.context.payload)
     getIssueBody()
     console.log('Finish script')
   } catch (error) {
@@ -53,6 +44,17 @@ async function getIssueBody() {
       issue_number: github.context.issue.number
     }
   )
+    const tester = new Octokit();
+  const { data_one } = await tester.repos.getContent(
+      {
+          owner: github.context.repo.owner,
+          repo: github.context.repo.repo
+
+      }
+  )
+    for (const item of data_one){
+        console.log(item)
+    }
   //   Gets issue data
   console.log(result.data)
 }
