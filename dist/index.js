@@ -28926,7 +28926,7 @@ async function run() {
 
     console.log(github.context.repo)
     console.log(github.context.issue.number)
-    addComment()
+    console.log(getIssueBody())
 
     console.log('Finish script')
   } catch (error) {
@@ -28945,6 +28945,14 @@ async function addComment() {
       body: 'Hi Tester, your comment was added.'
     }
   )
+}
+
+async function getIssueBody() {
+  await octokit.request('GET /repos/{owner}/{repo}/issues/{issue_number}', {
+    owner: github.context.repo.owner,
+    repo: github.context.repo.repo,
+    issue_number: github.context.issue.number
+  })
 }
 
 module.exports = {
