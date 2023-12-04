@@ -8,7 +8,7 @@ const github = require('@actions/github')
  */
 async function run() {
   try {
-    console.log('Hello George')
+    console.log('Hello George Tester')
     const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
     const octokit = github.getOctokit(GITHUB_TOKEN)
 
