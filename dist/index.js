@@ -32989,8 +32989,19 @@ const { getOctokit } = __nccwpck_require__(5438)
  * The main function for the action.
  * @returns {Promise<void>} Resolves when the action is complete.
  */
+// Token gets the input from the workflow
 const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
 const githubOctokit = github.getOctokit(GITHUB_TOKEN)
+const octokit = new Octokit({
+  request: {
+    fetch
+  },
+  auth: GITHUB_TOKEN,
+  baseUrl: process.env.GITHUB_API_URL ?? 'https://api.github.com',
+  owner: github.context.repo.owner,
+  repo: github.context.repo.repo,
+  issue_number: github.context.issue.number
+})
 async function run() {
   try {
     console.log('Hello George')
@@ -33026,22 +33037,30 @@ async function getIssueBody() {
       issue_number: github.context.issue.number
     }
   )
-  const octokit = getOctokit(GITHUB_TOKEN, { required: true })
-  const { data_one } = await octokit.repos.getContent({
-    request: {
-      fetch
-    },
-    owner: github.context.repo.owner,
-    repo: github.context.repo.repo,
-    path: '.github/ISSUE_TEMPLATE/staff-improvement.yaml',
-    baseUrl: process.env.GITHUB_API_URL ?? 'https://api.github.com',
-    auth: GITHUB_TOKEN
-  })
+  console.log(result.data)
+
+  async function addLabel() {
+    octokit.rest.issues.addLabels({
+      labels: ['test', 'moodle_bug_test']
+    })
+  }
+
+  // gets establishment with custom(enterprise) api
+  // const octokit = getOctokit(GITHUB_TOKEN, { required: true })
+  // const { data_one } = await octokit.({
+  //   request: {
+  //     fetch
+  //   },
+  //   owner: github.context.repo.owner,
+  //   repo: github.context.repo.repo,
+  //   path: '.github/ISSUE_TEMPLATE/staff-improvement.yaml',
+  //   baseUrl: process.env.GITHUB_API_URL ?? 'https://api.github.com',
+  //   auth: GITHUB_TOKEN
+  // })
   // for (const item of data_one) {
   //   console.log(item)
   // }
   //   Gets issue data
-  console.log(result.data)
 }
 
 module.exports = {
