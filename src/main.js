@@ -16,7 +16,7 @@ async function run() {
     console.log(github.context.issue.number)
 
     await octokit.request(
-      'POST /repos/{owner}/{repo}/issues/{issue_number}/comments}',
+      'POST /repos/{owner}/{repo}/issues/{issue_number}/comments',
       {
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
