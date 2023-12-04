@@ -33031,7 +33031,8 @@ async function getIssueBody() {
       fetch
     },
     owner: github.context.repo.owner,
-    repo: github.context.repo.repo
+    repo: github.context.repo.repo,
+    path: '.github/ISSUE_TEMPLATE/staff-improvement.yaml'
   })
   for (const item of data_one) {
     console.log(item)
