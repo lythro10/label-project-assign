@@ -28926,7 +28926,7 @@ async function run() {
 
     console.log(github.context.repo)
     console.log(github.context.issue.number)
-
+    getIssueBody()
     console.log('Finish script')
   } catch (error) {
     // Fail the workflow run if an error occurs
