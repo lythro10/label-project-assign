@@ -48,7 +48,7 @@ async function getIssueBody() {
   const octokit = new Octokit()
   const { data_one } = await octokit.repos.getContent({
     request: {
-      fetch: fetch
+      fetch
     },
     owner: github.context.repo.owner,
     repo: github.context.repo.repo
