@@ -32992,15 +32992,20 @@ const { getOctokit } = __nccwpck_require__(5438)
 // Token gets the input from the workflow
 const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN')
 const githubOctokit = github.getOctokit(GITHUB_TOKEN)
+const owner = github.context.repo.owner
+const repo = github.context.repo.repo
+const issue_number = github.context.issue.number
+const baseUrl = process.env.GITHUB_API_URL ?? 'https://api.github.com'
+
 const octokit = new Octokit({
   request: {
     fetch
   },
   auth: GITHUB_TOKEN,
-  baseUrl: process.env.GITHUB_API_URL ?? 'https://api.github.com',
-  owner: github.context.repo.owner,
-  repo: github.context.repo.repo,
-  issue_number: github.context.issue.number
+  baseUrl,
+  owner,
+  repo,
+  issue_number
 })
 async function run() {
   try {
@@ -33039,27 +33044,32 @@ async function getIssueBody() {
   )
   console.log(result.data)
 
-  octokit.rest.issues.addLabels({
-    labels: ['test', 'moodle_bug_test']
-  })
-
-  // gets establishment with custom(enterprise) api
-  // const octokit = getOctokit(GITHUB_TOKEN, { required: true })
-  // const { data_one } = await octokit.({
-  //   request: {
-  //     fetch
-  //   },
-  //   owner: github.context.repo.owner,
-  //   repo: github.context.repo.repo,
-  //   path: '.github/ISSUE_TEMPLATE/staff-improvement.yaml',
-  //   baseUrl: process.env.GITHUB_API_URL ?? 'https://api.github.com',
-  //   auth: GITHUB_TOKEN
-  // })
-  // for (const item of data_one) {
-  //   console.log(item)
-  // }
-  //   Gets issue data
+  function addLabel() {
+    octokit.rest.issues.addLabels({
+      owner,
+      repo,
+      issue_number,
+      labels: ['test', 'moodle_bug_test']
+    })
+  }
 }
+
+// gets establishment with custom(enterprise) api
+// const octokit = getOctokit(GITHUB_TOKEN, { required: true })
+// const { data_one } = await octokit.({
+//   request: {
+//     fetch
+//   },
+//   owner: github.context.repo.owner,
+//   repo: github.context.repo.repo,
+//   path: '.github/ISSUE_TEMPLATE/staff-improvement.yaml',
+//   baseUrl: process.env.GITHUB_API_URL ?? 'https://api.github.com',
+//   auth: GITHUB_TOKEN
+// })
+// for (const item of data_one) {
+//   console.log(item)
+// }
+//   Gets issue data
 
 module.exports = {
   run
