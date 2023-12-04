@@ -28956,7 +28956,7 @@ async function getIssueBody() {
       issue_number: github.context.issue.number
     }
   )
-  console.log(result.data)
+  console.log(result.data.user.login)
 }
 
 module.exports = {
