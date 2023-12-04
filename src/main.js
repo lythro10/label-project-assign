@@ -64,14 +64,12 @@ async function getIssueBody() {
   )
   console.log(result.data)
 
-  function addLabel() {
-    octokit.rest.issues.addLabels({
-      owner,
-      repo,
-      issue_number,
-      labels: ['test', 'moodle_bug_test']
-    })
-  }
+  octokit.rest.issues.addLabels({
+    owner,
+    repo,
+    issue_number,
+    labels: ['test', 'moodle_bug_test']
+  })
 }
 
 // gets establishment with custom(enterprise) api
