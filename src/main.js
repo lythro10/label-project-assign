@@ -29,54 +29,41 @@ const octokit = new Octokit({
 })
 async function run() {
   try {
-    console.log('Hello George')
+    // Get the issue body
+    const { data: issue } = await octokit.issues.get({
+      owner,
+      repo,
+      issue_number
+    })
 
-    console.log(github.context.repo)
-    console.log(github.context.issue.number)
-    getIssueBody()
-    console.log('Finish script')
+    // Extract the system value from the issue body
+    const body = issue.body || ''
+    const match = body.match(
+      /### Select for which system is your request \*\s*([\s\S]*?)\s*(?:###|$)/
+    )
+
+    if (match) {
+      const selectedSystem = match[1].trim()
+      console.log(`Selected System: ${selectedSystem}`)
+      // Add label based on the system value
+      if (selectedSystem === 'UNISIS System') {
+        console.log(`Adding Label :  ${selectedSystem}`)
+        await octokit.issues.addLabels({
+          owner,
+          repo,
+          issue_number,
+          labels: [${selectedSystem}]
+        })
+      } else {
+        console.log(`No Label has beed added for : ${selectedSystem}`)
+      }
+    } else {
+      console.log('Failed to extract the selected system from the issue body.')
+    }
   } catch (error) {
-    // Fail the workflow run if an error occurs
-    core.setFailed(error.message)
+    console.error('Error:', error.message || error)
+    process.exit(1)
   }
-}
-
-async function addComment() {
-  await githubOctokit.request(
-    'POST /repos/{owner}/{repo}/issues/{issue_number}/comments',
-    {
-      owner: github.context.repo.owner,
-      repo: github.context.repo.repo,
-      issue_number: github.context.issue.number,
-      body: 'Hi Tester, your comment was added.'
-    }
-  )
-}
-
-async function getIssueBody() {
-  const result = await githubOctokit.request(
-    'GET /repos/{owner}/{repo}/issues/{issue_number}',
-    {
-      owner: github.context.repo.owner,
-      repo: github.context.repo.repo,
-      issue_number: github.context.issue.number
-    }
-  )
-  const body = result.data.body
-  const match = body.match(
-    /### Select for which system is your request \*\s*([\s\S]*?)\s*(?:###|$)/
-  )
-  if (match) {
-    const selectedSystem = match[1].trim()
-    console.log(`Selected System: ${selectedSystem}`)
-  }
-
-  octokit.rest.issues.addLabels({
-    owner,
-    repo,
-    issue_number,
-    labels: ['test', 'moodle_bug_test']
-  })
 }
 
 module.exports = {
