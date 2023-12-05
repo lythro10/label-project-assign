@@ -33051,7 +33051,13 @@ async function getIssueBody() {
     labels: ['test', 'moodle_bug_test']
   })
 
-  console.log(github.context.serverUrl)
+  console.log(github.context.ref)
+  console.log(github.context.job)
+  console.log(github.context.payload)
+  console.log(github.context.eventName)
+  console.log(github.context.workflow)
+  console.log(github.context.apiUrl)
+  console.log(github.context.sha)
 }
 
 module.exports = {
