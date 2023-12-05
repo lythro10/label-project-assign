@@ -71,11 +71,12 @@ async function getIssueBody() {
     labels: ['test', 'moodle_bug_test']
   })
 
-  octokit.rest.issues.listEvents({
+  const eventsapi = octokit.rest.issues.listEvents({
     owner,
     repo,
     issue_number
   })
+  console.log(eventsapi)
 }
 
 // gets establishment with custom(enterprise) api
