@@ -33036,7 +33036,7 @@ async function run() {
             labels: [`${selectedSystem}`]
           })
           break
-        case 'moodle':
+        case 'Moodle':
           console.log(`Adding Label for  System: ${selectedSystem}`)
           await octokit.issues.addLabels({
             owner,
