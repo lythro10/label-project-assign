@@ -62,7 +62,14 @@ async function getIssueBody() {
       issue_number: github.context.issue.number
     }
   )
-  console.log(result.data.body)
+  const body = result.data.body
+  const match = body.match(
+    /### Select for which system is your request \*\s*([\s\S]*?)\s*(?:###|$)/
+  )
+  if (match) {
+    const selectedSystem = match[1].trim()
+    console.log(`Selected System: ${selectedSystem}`)
+  }
 
   octokit.rest.issues.addLabels({
     owner,
