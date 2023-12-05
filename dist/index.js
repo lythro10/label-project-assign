@@ -33047,7 +33047,7 @@ async function getIssueBody() {
     /### Select for which system is your request \*\s*([\s\S]*?)\s*(?:###|$)/
   )
   if (match) {
-    const selectedSystem = match[1].trim()
+    const selectedSystem = match
     console.log(`Selected System: ${selectedSystem}`)
   }
 
