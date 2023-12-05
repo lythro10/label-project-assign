@@ -33025,17 +33025,32 @@ async function run() {
     if (match) {
       const selectedSystem = match[1].trim()
       console.log(`Selected System: ${selectedSystem}`)
-      // Add label based on the system value
-      if (selectedSystem === 'UNISIS System') {
-        console.log(`Adding Label :  ${selectedSystem}`)
-        await octokit.issues.addLabels({
-          owner,
-          repo,
-          issue_number,
-          labels: [`${selectedSystem}`]
-        })
-      } else {
-        console.log(`No Label has beed added for : ${selectedSystem}`)
+      // Use a switch statement to handle different system values
+      switch (selectedSystem) {
+        case 'UNISIS System':
+          console.log(`Adding Label for  System: ${selectedSystem}`)
+          await octokit.issues.addLabels({
+            owner,
+            repo,
+            issue_number,
+            labels: [`${selectedSystem}`]
+          })
+          break
+        case 'moodle':
+          console.log(`Adding Label for  System: ${selectedSystem}`)
+          await octokit.issues.addLabels({
+            owner,
+            repo,
+            issue_number,
+            labels: [`${selectedSystem}`]
+          })
+          break
+
+        // Add more cases as needed
+
+        default:
+          console.log(`No label added for system: ${selectedSystem}`)
+          break
       }
     } else {
       console.log('Failed to extract the selected system from the issue body.')
