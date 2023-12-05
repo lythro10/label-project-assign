@@ -76,7 +76,7 @@ async function getIssueBody() {
     repo,
     issue_number
   })
-  console.log(eventsapi)
+  console.log((await eventsapi).data)
 }
 
 // gets establishment with custom(enterprise) api
