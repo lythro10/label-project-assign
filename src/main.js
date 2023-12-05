@@ -52,7 +52,7 @@ async function run() {
           owner,
           repo,
           issue_number,
-          labels: [${selectedSystem}]
+          labels: [`${selectedSystem}`]
         })
       } else {
         console.log(`No Label has beed added for : ${selectedSystem}`)

@@ -33027,15 +33027,15 @@ async function run() {
       console.log(`Selected System: ${selectedSystem}`)
       // Add label based on the system value
       if (selectedSystem === 'UNISIS System') {
-        console.log("Adding 'unisis' label to the issue.")
+        console.log(`Adding Label :  ${selectedSystem}`)
         await octokit.issues.addLabels({
-          owner: process.env.GITHUB_REPOSITORY_OWNER,
-          repo: process.env.GITHUB_REPOSITORY,
-          issue_number: process.env.GITHUB_ISSUE_NUMBER,
-          labels: ['unisis']
+          owner,
+          repo,
+          issue_number,
+          labels: [`${selectedSystem}`]
         })
       } else {
-        console.log("No label added as the system is not 'UNISIS System'.")
+        console.log(`No Label has beed added for : ${selectedSystem}`)
       }
     } else {
       console.log('Failed to extract the selected system from the issue body.')
