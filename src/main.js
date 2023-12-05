@@ -49,7 +49,20 @@ async function run() {
       issue_number
     })
 
-    const all_selected_system =[selected_system,selected_system_one,selected_system_two,selected_system_three,selected_system_four,selected_system_five,selected_system_six,selected_system_seven,selected_system_eight,selected_system_nine,selected_system_ten,selected_system_eleven]
+    const all_selected_system = [
+      selected_system,
+      selected_system_one,
+      selected_system_two,
+      selected_system_three,
+      selected_system_four,
+      selected_system_five,
+      selected_system_six,
+      selected_system_seven,
+      selected_system_eight,
+      selected_system_nine,
+      selected_system_ten,
+      selected_system_eleven
+    ]
     console.log(all_selected_system)
     // Extract the system value from the issue body
     const body = issue.body || ''
