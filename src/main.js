@@ -71,30 +71,8 @@ async function getIssueBody() {
     labels: ['test', 'moodle_bug_test']
   })
 
-  const eventsapi = octokit.rest.issues.listEvents({
-    owner,
-    repo,
-    issue_number
-  })
-  console.log((await eventsapi).data)
+  console.log(github.context.serverUrl)
 }
-
-// gets establishment with custom(enterprise) api
-// const octokit = getOctokit(GITHUB_TOKEN, { required: true })
-// const { data_one } = await octokit.({
-//   request: {
-//     fetch
-//   },
-//   owner: github.context.repo.owner,
-//   repo: github.context.repo.repo,
-//   path: '.github/ISSUE_TEMPLATE/staff-improvement.yaml',
-//   baseUrl: process.env.GITHUB_API_URL ?? 'https://api.github.com',
-//   auth: GITHUB_TOKEN
-// })
-// for (const item of data_one) {
-//   console.log(item)
-// }
-//   Gets issue data
 
 module.exports = {
   run
