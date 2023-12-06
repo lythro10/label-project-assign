@@ -33057,7 +33057,13 @@ async function run() {
       // Cases need to be to lower case
       if (all_selected_system.includes(selectedSystem)) {
         switch (selectedSystem) {
-          case 'unisis system':
+          case 'unisis system': {
+            console.log(`Adding Label for  System: ${selectedSystem}`)
+            const labels = ['unisis', 'technical-team', 'new-feature']
+            labelAPI(labels)
+            break
+          }
+          case 'moodle': {
             console.log(`Adding Label for  System: ${selectedSystem}`)
             await octokit.issues.addLabels({
               owner,
@@ -33066,21 +33072,14 @@ async function run() {
               labels: [`${selectedSystem}`]
             })
             break
-          case 'moodle':
-            console.log(`Adding Label for  System: ${selectedSystem}`)
-            await octokit.issues.addLabels({
-              owner,
-              repo,
-              issue_number,
-              labels: [`${selectedSystem}`]
-            })
-            break
+          }
 
           // Add more cases as needed
 
-          default:
+          default: {
             console.log(`No label added for system: ${selectedSystem}`)
             break
+          }
         }
       }
     } else {
@@ -33090,6 +33089,15 @@ async function run() {
     console.error('Error:', error.message || error)
     process.exit(1)
   }
+}
+
+async function labelAPI(labels) {
+  await octokit.issues.addLabels({
+    owner,
+    repo,
+    issue_number,
+    labels: [labels]
+  })
 }
 
 module.exports = {
