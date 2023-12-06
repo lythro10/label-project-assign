@@ -71,15 +71,11 @@ async function run() {
     )
 
     if (match) {
-      for (let i = 0; i < all_selected_system.length; i++) {
-        console.log(match)
-        console.log(all_selected_system[i])
-      }
       const selectedSystem = match[1].trim().toLowerCase()
       console.log(`Selected System: ${selectedSystem}`)
       // Use a switch statement to handle different system values
       // Cases need to be to lower case
-      if (selectedSystem === core.getInput('selected_system')) {
+      if (all_selected_system.includes(selectedSystem)) {
         switch (selectedSystem) {
           case 'unisis system':
             console.log(`Adding Label for  System: ${selectedSystem}`)
