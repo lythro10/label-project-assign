@@ -86,14 +86,19 @@ async function run() {
             ]
             const labels = ['unisis', 'technical-team', 'new-feature']
             labelAPI(labels)
-
             assignUser(usersToAssign)
             break
           }
           case 'moodle': {
             console.log(`Adding Label for  System: ${selectedSystem}`)
+            const usersToAssign = [
+              'tantoniou',
+              'pcharalambous',
+              'georgemichael'
+            ]
             const labels = ['moodle', 'technical-team', 'new-feature']
             labelAPI(labels)
+            assignUser(usersToAssign)
             break
           }
 
