@@ -33096,7 +33096,7 @@ async function labelAPI(labels) {
     owner,
     repo,
     issue_number,
-    labels: [labels]
+    labels
   })
 }
 
