@@ -33052,11 +33052,8 @@ async function run() {
 
     if (match) {
       for (let i = 0; i < all_selected_system.length; i++) {
-        if (match === all_selected_system[i]) {
-          console.log('Its in the array')
-        } else {
-          console.log('NOT IN THE ARRAY')
-        }
+        console.log(match)
+        console.log(all_selected_system[i])
       }
       const selectedSystem = match[1].trim().toLowerCase()
       console.log(`Selected System: ${selectedSystem}`)
