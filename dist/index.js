@@ -33059,8 +33059,15 @@ async function run() {
         switch (selectedSystem) {
           case 'unisis system': {
             console.log(`Adding Label for  System: ${selectedSystem}`)
+            const usersToAssign = [
+              'tantoniou',
+              'pcharalambous',
+              'georgemichael'
+            ]
             const labels = ['unisis', 'technical-team', 'new-feature']
             labelAPI(labels)
+
+            assignUser(usersToAssign)
             break
           }
           case 'moodle': {
@@ -33093,6 +33100,15 @@ async function labelAPI(labels) {
     repo,
     issue_number,
     labels
+  })
+}
+
+async function assignUser(assignees) {
+  await octokit.rest.issues.addAssignees({
+    owner,
+    repo,
+    issue_number,
+    assignees
   })
 }
 
