@@ -33065,12 +33065,8 @@ async function run() {
           }
           case 'moodle': {
             console.log(`Adding Label for  System: ${selectedSystem}`)
-            await octokit.issues.addLabels({
-              owner,
-              repo,
-              issue_number,
-              labels: [`${selectedSystem}`]
-            })
+            const labels = ['moodle', 'technical-team', 'new-feature']
+            labelAPI(labels)
             break
           }
 
