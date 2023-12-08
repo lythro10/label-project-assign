@@ -32998,17 +32998,6 @@ const issue_number = github.context.issue.number
 const baseUrl = process.env.GITHUB_API_URL ?? 'https://api.github.com'
 
 const selected_system = core.getInput('selected_system')
-// const selected_system_one = core.getInput('selected_system_one')
-// const selected_system_two = core.getInput('selected_system_two')
-// const selected_system_three = core.getInput('selected_system_three')
-// const selected_system_four = core.getInput('selected_system_four')
-// const selected_system_five = core.getInput('selected_system_five')
-// const selected_system_six = core.getInput('selected_system_six')
-// const selected_system_seven = core.getInput('selected_system_seven')
-// const selected_system_eight = core.getInput('selected_system_eight')
-// const selected_system_nine = core.getInput('selected_system_nine')
-// const selected_system_ten = core.getInput('selected_system_ten')
-// const selected_system_eleven = core.getInput('selected_system_eleven')
 
 const octokit = new Octokit({
   request: {
@@ -33029,20 +33018,6 @@ async function run() {
       issue_number
     })
 
-    // const all_selected_system = [
-    //   selected_system,
-    //   selected_system_one,
-    //   selected_system_two,
-    //   selected_system_three,
-    //   selected_system_four,
-    //   selected_system_five,
-    //   selected_system_six,
-    //   selected_system_seven,
-    //   selected_system_eight,
-    //   selected_system_nine,
-    //   selected_system_ten,
-    //   selected_system_eleven
-    // ]
     const all_selected_system = selected_system.split(',')
     console.log(all_selected_system)
     // Extract the system value from the issue body
@@ -33056,41 +33031,41 @@ async function run() {
       console.log(`Selected System: ${selectedSystem}`)
       // Use a switch statement to handle different system values
       // Cases need to be to lower case
-      if (all_selected_system.includes(selectedSystem)) {
-        switch (selectedSystem) {
-          case 'unisis system': {
-            console.log(`Adding Label for  System: ${selectedSystem}`)
-            const usersToAssign = [
-              'tantoniou',
-              'pcharalambous',
-              'georgemichael'
-            ]
-            const labels = ['unisis', 'technical-team', 'new-feature']
-            labelAPI(labels)
-            assignUser(usersToAssign)
-            break
-          }
-          case 'moodle': {
-            console.log(`Adding Label for  System: ${selectedSystem}`)
-            const usersToAssign = [
-              'tantoniou',
-              'pcharalambous',
-              'georgemichael'
-            ]
-            const labels = ['moodle', 'technical-team', 'new-feature']
-            labelAPI(labels)
-            assignUser(usersToAssign)
-            break
-          }
-
-          // Add more cases as needed
-
-          default: {
-            console.log(`No label added for system: ${selectedSystem}`)
-            break
-          }
-        }
-      }
+      // if (all_selected_system.includes(selectedSystem)) {
+      //   switch (selectedSystem) {
+      //     case 'unisis system': {
+      //       console.log(`Adding Label for  System: ${selectedSystem}`)
+      //       const usersToAssign = [
+      //         'tantoniou',
+      //         'pcharalambous',
+      //         'georgemichael'
+      //       ]
+      //       const labels = ['unisis', 'technical-team', 'new-feature']
+      //       labelAPI(labels)
+      //       assignUser(usersToAssign)
+      //       break
+      //     }
+      //     case 'moodle': {
+      //       console.log(`Adding Label for  System: ${selectedSystem}`)
+      //       const usersToAssign = [
+      //         'tantoniou',
+      //         'pcharalambous',
+      //         'georgemichael'
+      //       ]
+      //       const labels = ['moodle', 'technical-team', 'new-feature']
+      //       labelAPI(labels)
+      //       assignUser(usersToAssign)
+      //       break
+      //     }
+      //
+      //     // Add more cases as needed
+      //
+      //     default: {
+      //       console.log(`No label added for system: ${selectedSystem}`)
+      //       break
+      //     }
+      //   }
+      // }
     } else {
       console.log('Failed to extract the selected system from the issue body.')
     }
