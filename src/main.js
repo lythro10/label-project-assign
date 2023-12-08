@@ -38,7 +38,7 @@ async function run() {
       issue_number
     })
 
-    const all_selected_system = selected_system.split(',')
+    const all_selected_system = selected_system.split(',').map(s => s.trim())
     console.log(all_selected_system)
     // Extract the system value from the issue body
     const body = issue.body || ''
