@@ -37,7 +37,7 @@ async function run() {
       repo,
       issue_number
     })
-
+    // Slits by , then trims and white space in front of at last .
     const all_selected_system = selected_system.split(',').map(s => s.trim())
     console.log(all_selected_system)
     // Extract the system value from the issue body
