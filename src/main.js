@@ -49,43 +49,7 @@ async function run() {
     if (match) {
       const selectedSystem = match[1].trim().toLowerCase()
       console.log(`Selected System: ${selectedSystem}`)
-      // Use a switch statement to handle different system values
-      // Cases need to be to lower case
-      // if (all_selected_system.includes(selectedSystem)) {
-      //   switch (selectedSystem) {
-      //     case 'unisis system': {
-      //       console.log(`Adding Label for  System: ${selectedSystem}`)
-      //       const usersToAssign = [
-      //         'tantoniou',
-      //         'pcharalambous',
-      //         'georgemichael'
-      //       ]
-      //       const labels = ['unisis', 'technical-team', 'new-feature']
-      //       labelAPI(labels)
-      //       assignUser(usersToAssign)
-      //       break
-      //     }
-      //     case 'moodle': {
-      //       console.log(`Adding Label for  System: ${selectedSystem}`)
-      //       const usersToAssign = [
-      //         'tantoniou',
-      //         'pcharalambous',
-      //         'georgemichael'
-      //       ]
-      //       const labels = ['moodle', 'technical-team', 'new-feature']
-      //       labelAPI(labels)
-      //       assignUser(usersToAssign)
-      //       break
-      //     }
-      //
-      //     // Add more cases as needed
-      //
-      //     default: {
-      //       console.log(`No label added for system: ${selectedSystem}`)
-      //       break
-      //     }
-      //   }
-      // }
+      console.log(all_selected_system.includes(selectedSystem))
     } else {
       console.log('Failed to extract the selected system from the issue body.')
     }
