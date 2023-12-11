@@ -32998,6 +32998,9 @@ const issue_number = github.context.issue.number
 const baseUrl = process.env.GITHUB_API_URL ?? 'https://api.github.com'
 
 const selected_system = core.getInput('selected_system')
+const set_labels = core.getInput('selected_system_label')
+console.log('Labels are below')
+console.log(set_labels)
 
 const octokit = new Octokit({
   request: {
