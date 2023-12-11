@@ -33038,9 +33038,9 @@ async function run() {
         const assigneesForLabel = `${selectedSystem}_assignees`
 
         // Gets from Environment from workflow
-        const labelsForSystem = process.env[nameForLabel]
+        let labelsForSystem = process.env[nameForLabel]
+        labelsForSystem = makeToArray(labelsForSystem)
         // labelsForSystem = labelsForSystem.split(',').map(s => s.trim())
-        makeToArray(labelsForSystem)
 
         // selected_system.split(',').map(s => s.trim())
         const assigneesForSystem = process.env[assigneesForLabel]
