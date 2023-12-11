@@ -59,7 +59,7 @@ async function run() {
         console.log(assignessForLabel)
         console.log(nameForLabel)
 
-        console.log(core.exportVariable(nameForLabel))
+        console.log(process.env.moodle_label)
       }
     } else {
       console.log('Failed to extract the selected system from the issue body.')
