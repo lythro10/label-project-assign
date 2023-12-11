@@ -60,6 +60,7 @@ async function run() {
         // Gets from Environment from workflow
         const labelsForSystem = process.env[nameForLabel]
         const assignessForSystem = process.env[assignessForLabel]
+        console.log(assignessForSystem)
 
         assignUser(assignessForSystem)
         // labelAPI(labelsForSystem)
