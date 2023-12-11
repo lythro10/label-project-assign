@@ -66,8 +66,7 @@ async function run() {
         console.log(labelsForSystem)
         console.log(assigneesForSystem)
         assignUser(assigneesForSystem)
-        // labelAPI(labelsForSystem)
-        // labelAPI(labelsForSystem)
+        labelAPI(labelsForSystem)
       }
     } else {
       console.log('Failed to extract the selected system from the issue body.')
