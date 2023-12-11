@@ -33042,6 +33042,7 @@ async function run() {
         const assigneesForSystem = process.env[assigneesForLabel]
         // console.log(assigneesForSystem)
         console.log(assigneesForLabel)
+        console.log(nameForLabel)
 
         assignUser(assigneesForSystem)
         // labelAPI(labelsForSystem)
