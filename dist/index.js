@@ -33036,13 +33036,13 @@ async function run() {
       if (all_selected_system.includes(selectedSystem)) {
         const nameForLabel = `${selectedSystem}_label`
         const assignessForLabel = `${selectedSystem}_assigness`
-        console.log(assignessForLabel)
-        console.log(nameForLabel)
-        // const envForNameLabel = `process.env.${nameForLabel}`
-        // console.log(envForNameLabel)
-        // console.log(typeof envForNameLabel)
-        // console.log(process.env.moodle_label)
-        console.log(process.env[nameForLabel])
+
+        // Gets from Environment from workflow
+        const labelsForSystem = process.env[nameForLabel]
+        const assignessForSystem = process.env[assignessForLabel]
+
+        assignUser(assignessForSystem)
+        labelAPI(labelsForSystem)
       }
     } else {
       console.log('Failed to extract the selected system from the issue body.')
