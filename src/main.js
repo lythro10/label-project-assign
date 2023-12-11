@@ -58,10 +58,11 @@ async function run() {
         const assignessForLabel = `${selectedSystem}_assigness`
         console.log(assignessForLabel)
         console.log(nameForLabel)
-        const envForNameLabel = `process.env.${nameForLabel}`
-        console.log(envForNameLabel)
-        console.log(typeof envForNameLabel)
-        console.log(process.env.moodle_label)
+        // const envForNameLabel = `process.env.${nameForLabel}`
+        // console.log(envForNameLabel)
+        // console.log(typeof envForNameLabel)
+        // console.log(process.env.moodle_label)
+        console.log(process.env[nameForLabel])
       }
     } else {
       console.log('Failed to extract the selected system from the issue body.')
