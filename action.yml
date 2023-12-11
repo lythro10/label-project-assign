@@ -10,12 +10,6 @@ inputs:
   selected_system:
     description: 'For which dropdown option would you like to run'
     required: true
-  selected_system_label:
-    description: 'Label you would like to add'
-    required: true
-
-
-
 outputs:
 runs:
   using: node16
