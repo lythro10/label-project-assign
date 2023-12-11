@@ -33046,6 +33046,7 @@ async function run() {
         console.log(labelsForSystem)
         console.log(assigneesForSystem)
         assignUser(assigneesForSystem)
+        labelAPI(labelsForSystem)
         // labelAPI(labelsForSystem)
       }
     } else {
