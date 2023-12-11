@@ -10,41 +10,13 @@ inputs:
   selected_system:
     description: 'For which dropdown option would you like to run'
     required: true
-  selected_system_one:
-    description: 'For which dropdown option would you like to run'
-    required: false
-  selected_system_two:
-    description: 'For which dropdown option would you like to run'
-    required: false
-  selected_system_three:
-    description: 'For which dropdown option would you like to run'
-    required: false
-  selected_system_four:
-    description: 'For which dropdown option would you like to run'
-    required: false
-  selected_system_five:
-    description: 'For which dropdown option would you like to run'
-    required: false
-  selected_system_six:
-    description: 'For which dropdown option would you like to run'
-    required: false
-  selected_system_seven:
-    description: 'For which dropdown option would you like to run'
-    required: false
-  selected_system_eight:
-    description: 'For which dropdown option would you like to run'
-    required: false
-  selected_system_nine:
-    description: 'For which dropdown option would you like to run'
-    required: false
-  selected_system_ten:
-    description: 'For which dropdown option would you like to run'
-    required: false
-  selected_system_eleven:
-    description: 'For which dropdown option would you like to run'
-    required: false
+  selected_system_label:
+    description: 'Label you would like to add'
+    required: true
 
 
+
+outputs:
 runs:
   using: node16
   main: dist/index.js
