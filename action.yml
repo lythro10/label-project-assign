@@ -10,7 +10,11 @@ inputs:
   selected_system:
     description: 'For which dropdown option would you like to run'
     required: true
-outputs:
+  selected_system_label:
+    description: 'Label you would like to add'
+    required: true
+
+
 runs:
   using: node16
   main: dist/index.js
