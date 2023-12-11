@@ -33043,8 +33043,8 @@ async function run() {
         makeToArray(labelsForSystem)
 
         // selected_system.split(',').map(s => s.trim())
-        let assigneesForSystem = process.env[assigneesForLabel]
-        assigneesForSystem = assigneesForSystem.split(',').map(s => s.trim())
+        const assigneesForSystem = process.env[assigneesForLabel]
+        makeToArray(assigneesForSystem)
         // assigneesForSystem = makeToArray(assigneesForSystem)
         // console.log(assigneesForSystem)
         console.log(assigneesForLabel)
