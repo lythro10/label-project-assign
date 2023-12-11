@@ -33043,7 +33043,8 @@ async function run() {
         // console.log(assigneesForSystem)
         console.log(assigneesForLabel)
         console.log(nameForLabel)
-
+        console.log(labelsForSystem)
+        console.log(assigneesForSystem)
         assignUser(assigneesForSystem)
         // labelAPI(labelsForSystem)
       }
