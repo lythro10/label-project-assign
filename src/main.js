@@ -58,8 +58,8 @@ async function run() {
         const assignessForLabel = `${selectedSystem}_assigness`
         console.log(assignessForLabel)
         console.log(nameForLabel)
-
-        console.log(process.env.nameForLabel)
+        const envForNameLabel = `process.env.${nameForLabel}`
+        console.log(envForNameLabel)
       }
     } else {
       console.log('Failed to extract the selected system from the issue body.')
