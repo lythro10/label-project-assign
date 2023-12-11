@@ -59,10 +59,12 @@ async function run() {
 
         // Gets from Environment from workflow
         let labelsForSystem = process.env[nameForLabel]
-        labelsForSystem = labelsForSystem.split(',').map(s => s.trim())
+        // labelsForSystem = labelsForSystem.split(',').map(s => s.trim())
+        labelsForSystem = makeToArray(labelsForSystem)
 
         // selected_system.split(',').map(s => s.trim())
-        const assigneesForSystem = process.env[assigneesForLabel]
+        let assigneesForSystem = process.env[assigneesForLabel]
+        assigneesForSystem = makeToArray(assigneesForSystem)
         // console.log(assigneesForSystem)
         console.log(assigneesForLabel)
         console.log(nameForLabel)
@@ -100,6 +102,9 @@ async function assignUser(assignees) {
   })
 }
 
+function makeToArray(string) {
+  string.split(',').map(s => s.trim())
+}
 module.exports = {
   run
 }
