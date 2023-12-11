@@ -62,7 +62,7 @@ async function run() {
         const assignessForSystem = process.env[assignessForLabel]
 
         assignUser(assignessForSystem)
-        labelAPI(labelsForSystem)
+        // labelAPI(labelsForSystem)
       }
     } else {
       console.log('Failed to extract the selected system from the issue body.')
