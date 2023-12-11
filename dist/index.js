@@ -33035,14 +33035,14 @@ async function run() {
       console.log(all_selected_system.includes(selectedSystem))
       if (all_selected_system.includes(selectedSystem)) {
         const nameForLabel = `${selectedSystem}_label`
-        const assignessForLabel = `${selectedSystem}_assigness`
+        const assigneesForLabel = `${selectedSystem}_assignees`
 
         // Gets from Environment from workflow
         const labelsForSystem = process.env[nameForLabel]
-        const assignessForSystem = process.env[assignessForLabel]
-        console.log(assignessForSystem)
+        const assigneesForSystem = process.env[assigneesForLabel]
+        console.log(assigneesForSystem)
 
-        assignUser(assignessForSystem)
+        assignUser(assigneesForSystem)
         // labelAPI(labelsForSystem)
       }
     } else {
