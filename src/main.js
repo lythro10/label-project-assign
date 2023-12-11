@@ -55,6 +55,8 @@ async function run() {
       console.log(all_selected_system.includes(selectedSystem))
       if (all_selected_system.includes(selectedSystem)) {
         const nameForLabel = `${selectedSystem}_label`
+        const assignessForLabel = `${selectedSystem}_assigness`
+        console.log(assignessForLabel)
         console.log(nameForLabel)
       }
     } else {
