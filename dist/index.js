@@ -33040,6 +33040,7 @@ async function run() {
         console.log(nameForLabel)
         const envForNameLabel = `process.env.${nameForLabel}`
         console.log(envForNameLabel)
+        console.log(typeof envForNameLabel)
       }
     } else {
       console.log('Failed to extract the selected system from the issue body.')
