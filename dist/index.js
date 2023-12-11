@@ -33033,6 +33033,10 @@ async function run() {
       const selectedSystem = match[1].trim().toLowerCase()
       console.log(`Selected System: ${selectedSystem}`)
       console.log(all_selected_system.includes(selectedSystem))
+      if (all_selected_system.includes(selectedSystem)) {
+        const nameForLabel = `${selectedSystem}_label`
+        console.log(nameForLabel)
+      }
     } else {
       console.log('Failed to extract the selected system from the issue body.')
     }
