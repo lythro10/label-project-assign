@@ -13,7 +13,7 @@ inputs:
   selected_system_label:
     description: 'Label you would like to add'
     required: true
-  match:
+  StringToMatch:
     description: 'What value to track'
     required: true
 
