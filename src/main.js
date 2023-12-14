@@ -48,11 +48,11 @@ async function run() {
     console.log(all_selected_system)
     // Extract the system value from the issue body
     const body = issue.body || ''
-    const match = body.match(stringToMatch)
-    console.log(body)
-    // const match = body.match(
-    //   /### Select for which system is your request \*\s*([\s\S]*?)\s*(?:###|$)/
-    // )
+    // const match = body.match(stringToMatch)
+    // console.log(body)
+    const match = body.match(
+      /### Select for which system is your request \*\s*([\s\S]*?)\s*(?:###|$)/
+    )
 
     if (match) {
       const selectedSystem = match[1].trim().toLowerCase()
