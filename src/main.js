@@ -19,11 +19,11 @@ const baseUrl = process.env.GITHUB_API_URL ?? 'https://api.github.com'
 
 const selected_system = core.getInput('selected_system')
 const set_labels = core.getInput('selected_system_label')
-const stringToMatch = core.getInput('StringToMatch')
+const regexToMatch = core.getInput('regexToMatch')
 // const regex = new RegExp(stringToMatch, 'i')
-console.log(`String to match is the follwoing ${stringToMatch}`)
+console.log(`String to match is the follwoing ${regexToMatch}`)
 
-console.log(set_labels)
+console.log(`These are the labels which are got from workflow ${set_labels}`)
 
 const octokit = new Octokit({
   request: {
@@ -48,8 +48,9 @@ async function run() {
     console.log(all_selected_system)
     // Extract the system value from the issue body
     const body = issue.body || ''
-    const match = body.match(stringToMatch)
-    console.log(body)
+    // match the regex inputed from
+    const match = body.match(regexToMatch)
+
     // const match = body.match(
     //   /### Select for which system is your request \*\s*([\s\S]*?)\s*(?:###|$)/
     // )
