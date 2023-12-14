@@ -19,8 +19,8 @@ const baseUrl = process.env.GITHUB_API_URL ?? 'https://api.github.com'
 
 const selected_system = core.getInput('selected_system')
 const set_labels = core.getInput('selected_system_label')
-let stringToMatch = core.getInput('StringToMatch')
-stringToMatch = stringToMatch.trim()
+const stringToMatch = core.getInput('StringToMatch')
+const regex = new RegExp(stringToMatch)
 console.log(`String to match is the follwoing ${stringToMatch}`)
 
 console.log(set_labels)
@@ -48,11 +48,11 @@ async function run() {
     console.log(all_selected_system)
     // Extract the system value from the issue body
     const body = issue.body || ''
-    // const match = body.match(stringToMatch)
-    // console.log(body)
-    const match = body.match(
-      /### Select for which system is your request \*\s*([\s\S]*?)\s*(?:###|$)/
-    )
+    const match = body.match(regex)
+    console.log(body)
+    // const match = body.match(
+    //   /### Select for which system is your request \*\s*([\s\S]*?)\s*(?:###|$)/
+    // )
 
     if (match) {
       const selectedSystem = match[1].trim().toLowerCase()
