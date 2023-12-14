@@ -33053,7 +33053,7 @@ async function run() {
           `These labels will be added to the issue ${labelsForSystem}`
         )
         console.log(
-          `These usernames will be assigned for the issue {assigneesForSystem}`
+          `These usernames will be assigned for the issue ${assigneesForSystem}`
         )
         assignUser(assigneesForSystem)
         labelAPI(labelsForSystem)
