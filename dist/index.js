@@ -33002,6 +33002,7 @@ const set_labels = core.getInput('selected_system_label')
 const stringToMatch = core.getInput('StringToMatch')
 console.log(`String to match is the follwoing ${stringToMatch}`)
 const regex = new RegExp(stringToMatch)
+console.log(regex)
 console.log('Labels are below')
 console.log(set_labels)
 
