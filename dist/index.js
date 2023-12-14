@@ -33002,9 +33002,6 @@ const set_labels = core.getInput('selected_system_label')
 const regexToMatch = core.getInput('regexToMatch')
 // const regex = new RegExp(stringToMatch, 'i')
 console.log(`String to match is the follwoing ${regexToMatch}`)
-
-console.log(`These are the labels which are got from workflow ${set_labels}`)
-
 const octokit = new Octokit({
   request: {
     fetch
@@ -33025,7 +33022,7 @@ async function run() {
     })
     // Slits by , then trims and white space in front of at last .
     const all_selected_system = selected_system.split(',').map(s => s.trim())
-    console.log(all_selected_system)
+    console.log(`All systems which will run for ${all_selected_system}`)
     // Extract the system value from the issue body
     const body = issue.body || ''
     // match the regex inputed from
@@ -33038,10 +33035,10 @@ async function run() {
     if (match) {
       const selectedSystem = match[1].trim().toLowerCase()
       console.log(`Selected System: ${selectedSystem}`)
-
-      console.log(all_selected_system.includes(selectedSystem))
       if (all_selected_system.includes(selectedSystem)) {
+        // Which label will be added for the selected system
         const nameForLabel = `${selectedSystem}_label`
+        // who will assign to the issue based on the selected system
         const assigneesForLabel = `${selectedSystem}_assignees`
 
         // Gets from Environment from workflow
@@ -33052,10 +33049,12 @@ async function run() {
         let assigneesForSystem = process.env[assigneesForLabel]
         assigneesForSystem = makeToArray(assigneesForSystem)
 
-        console.log(assigneesForLabel)
-        console.log(nameForLabel)
-        console.log(labelsForSystem)
-        console.log(assigneesForSystem)
+        console.log(
+          `These labels will be added to the issue ${labelsForSystem}`
+        )
+        console.log(
+          `These usernames will be assigned for the issue {assigneesForSystem}`
+        )
         assignUser(assigneesForSystem)
         labelAPI(labelsForSystem)
       }
