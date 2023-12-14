@@ -33000,7 +33000,7 @@ const baseUrl = process.env.GITHUB_API_URL ?? 'https://api.github.com'
 const selected_system = core.getInput('selected_system')
 const set_labels = core.getInput('selected_system_label')
 const stringToMatch = core.getInput('StringToMatch')
-const regex = new RegExp(stringToMatch)
+const regex = new RegExp(stringToMatch, 'i')
 console.log(`String to match is the follwoing ${stringToMatch}`)
 
 console.log(set_labels)
