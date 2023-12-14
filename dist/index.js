@@ -33029,7 +33029,7 @@ async function run() {
     // Extract the system value from the issue body
     const body = issue.body || ''
     const match = body.match(stringToMatch)
-    console.log(match)
+    console.log(body)
     // const match = body.match(
     //   /### Select for which system is your request \*\s*([\s\S]*?)\s*(?:###|$)/
     // )
