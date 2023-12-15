@@ -58,7 +58,7 @@ async function run() {
       if (all_selected_system.includes(selectedSystem)) {
         // Which label will be added for the selected system
         let nameForLabel = `${selectedSystem}_label`
-        console.log(nameForLabel)
+        //For label which has space in the name we replace it with _
         nameForLabel = nameForLabel.replaceAll(' ', '_')
         // who will assign to the issue based on the selected system
         let assigneesForLabel = `${selectedSystem}_assignees`
@@ -66,6 +66,7 @@ async function run() {
 
         // Gets from Environment from workflow
         let labelsForSystem = process.env[nameForLabel]
+        console.log(labelsForSystem)
         labelsForSystem = makeToArray(labelsForSystem)
 
         // selected_system.split(',').map(s => s.trim())
