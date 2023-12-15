@@ -33046,21 +33046,45 @@ async function run() {
 
         // Gets from Environment from workflow
         let labelsForSystem = process.env[nameForLabel]
-        console.log(labelsForSystem)
-        labelsForSystem = makeToArray(labelsForSystem)
+        let assigneesForSystem = process.env[assigneesForLabel]
+
+        if (
+          !labelsForSystem === undefined &&
+          !assigneesForSystem === undefined
+        ) {
+          labelsForSystem = makeToArray(labelsForSystem)
+          assigneesForSystem = makeToArray(assigneesForSystem)
+          console.log(
+            `These labels will be added to the issue ${labelsForSystem}`
+          )
+          console.log(
+            `These usernames will be assigned for the issue ${assigneesForSystem}`
+          )
+          assignUser(assigneesForSystem)
+          labelAPI(labelsForSystem)
+        } else if (
+          !labelsForSystem === undefined &&
+          assigneesForLabel === undefined
+        ) {
+          labelsForSystem = makeToArray(labelsForSystem)
+          labelAPI(labelsForSystem)
+          console.log(
+            `These labels will be added to the issue ${labelsForSystem}`
+          )
+        } else if (
+          labelsForSystem === undefined &&
+          !assigneesForSystem === undefined
+        ) {
+          assigneesForSystem = makeToArray(assigneesForSystem)
+          assignUser(assigneesForSystem)
+          console.log(
+            `These usernames will be assigned for the issue ${assigneesForSystem}`
+          )
+        } else {
+          console.log('No labels or Assignes have been inputed')
+        }
 
         // selected_system.split(',').map(s => s.trim())
-        let assigneesForSystem = process.env[assigneesForLabel]
-        assigneesForSystem = makeToArray(assigneesForSystem)
-
-        console.log(
-          `These labels will be added to the issue ${labelsForSystem}`
-        )
-        console.log(
-          `These usernames will be assigned for the issue ${assigneesForSystem}`
-        )
-        assignUser(assigneesForSystem)
-        labelAPI(labelsForSystem)
       }
     } else {
       console.log('Failed to extract the selected system from the issue body.')

@@ -68,47 +68,43 @@ async function run() {
         let labelsForSystem = process.env[nameForLabel]
         let assigneesForSystem = process.env[assigneesForLabel]
 
-
-        if (!labelsForSystem === undefined && !assigneesForSystem === undefined){
-
+        if (
+          !labelsForSystem === undefined &&
+          !assigneesForSystem === undefined
+        ) {
           labelsForSystem = makeToArray(labelsForSystem)
           assigneesForSystem = makeToArray(assigneesForSystem)
           console.log(
-              `These labels will be added to the issue ${labelsForSystem}`
+            `These labels will be added to the issue ${labelsForSystem}`
           )
           console.log(
-              `These usernames will be assigned for the issue ${assigneesForSystem}`
+            `These usernames will be assigned for the issue ${assigneesForSystem}`
           )
           assignUser(assigneesForSystem)
           labelAPI(labelsForSystem)
-        }else if ( !labelsForSystem === undefined && assigneesForLabel === undefined ){
+        } else if (
+          !labelsForSystem === undefined &&
+          assigneesForLabel === undefined
+        ) {
           labelsForSystem = makeToArray(labelsForSystem)
           labelAPI(labelsForSystem)
           console.log(
-              `These labels will be added to the issue ${labelsForSystem}`
+            `These labels will be added to the issue ${labelsForSystem}`
           )
-        }else if (labelsForSystem === undefined && !assigneesForSystem === undefined){
+        } else if (
+          labelsForSystem === undefined &&
+          !assigneesForSystem === undefined
+        ) {
           assigneesForSystem = makeToArray(assigneesForSystem)
           assignUser(assigneesForSystem)
           console.log(
-              `These usernames will be assigned for the issue ${assigneesForSystem}`
+            `These usernames will be assigned for the issue ${assigneesForSystem}`
           )
-
-        }else{
-          console.log("No labels or Assignes have been inputed")
+        } else {
+          console.log('No labels or Assignes have been inputed')
         }
 
-
-
-
-
-
         // selected_system.split(',').map(s => s.trim())
-
-
-
-
-
       }
     } else {
       console.log('Failed to extract the selected system from the issue body.')
