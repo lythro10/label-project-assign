@@ -57,9 +57,11 @@ async function run() {
       console.log(`Selected System: ${selectedSystem}`)
       if (all_selected_system.includes(selectedSystem)) {
         // Which label will be added for the selected system
-        const nameForLabel = `${selectedSystem}_label`
+        let nameForLabel = `${selectedSystem}_label`
+        nameForLabel = nameForLabel.replaceAll(' ', '_')
         // who will assign to the issue based on the selected system
-        const assigneesForLabel = `${selectedSystem}_assignees`
+        let assigneesForLabel = `${selectedSystem}_assignees`
+        assigneesForLabel = assigneesForLabel.replaceAll(' ', '_')
 
         // Gets from Environment from workflow
         let labelsForSystem = process.env[nameForLabel]
