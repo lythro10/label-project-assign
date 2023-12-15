@@ -33038,6 +33038,7 @@ async function run() {
       if (all_selected_system.includes(selectedSystem)) {
         // Which label will be added for the selected system
         let nameForLabel = `${selectedSystem}_label`
+        console.log(nameForLabel)
         nameForLabel = nameForLabel.replaceAll(' ', '_')
         // who will assign to the issue based on the selected system
         let assigneesForLabel = `${selectedSystem}_assignees`
