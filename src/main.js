@@ -71,10 +71,7 @@ async function run() {
         console.log(labelsForSystem)
         console.log(assigneesForSystem)
 
-        if (
-          !labelsForSystem === undefined &&
-          !assigneesForSystem === undefined
-        ) {
+        if (labelsForSystem && assigneesForSystem) {
           labelsForSystem = makeToArray(labelsForSystem)
           assigneesForSystem = makeToArray(assigneesForSystem)
           console.log(
