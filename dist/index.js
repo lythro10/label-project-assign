@@ -33043,14 +33043,13 @@ async function run() {
         // who will assign to the issue based on the selected system
         let assigneesForLabel = `${selectedSystem}_assignees`
         assigneesForLabel = assigneesForLabel.replaceAll(' ', '_')
-        console.log(assigneesForLabel)
 
         // Gets from Environment from workflow
         let labelsForSystem = process.env[nameForLabel]
         let assigneesForSystem = process.env[assigneesForLabel]
 
-        console.log(assigneesForSystem)
-        console.log(labelsForSystem)
+        console.log(typeof assigneesForSystem)
+        console.log(typeof labelsForSystem)
 
         // If both are there use this.
         if (labelsForSystem && assigneesForSystem) {
