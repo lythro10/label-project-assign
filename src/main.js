@@ -63,6 +63,7 @@ async function run() {
         // who will assign to the issue based on the selected system
         let assigneesForLabel = `${selectedSystem}_assignees`
         assigneesForLabel = assigneesForLabel.replaceAll(' ', '_')
+        console.log(assigneesForLabel)
 
         // Gets from Environment from workflow
         let labelsForSystem = process.env[nameForLabel]
