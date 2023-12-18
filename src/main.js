@@ -84,7 +84,7 @@ async function run() {
           assignUser(assigneesForSystem)
           labelAPI(labelsForSystem)
           //   If there is only label but not assignee
-        } else if (!assigneesForLabel && labelsForSystem) {
+        } else if (assigneesForLabel === 'undefined' && labelsForSystem) {
           labelsForSystem = makeToArray(labelsForSystem)
           labelAPI(labelsForSystem)
           console.log(
