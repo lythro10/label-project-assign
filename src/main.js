@@ -82,19 +82,13 @@ async function run() {
           )
           assignUser(assigneesForSystem)
           labelAPI(labelsForSystem)
-        } else if (
-          labelsForSystem &&
-          !assigneesForLabel
-        ) {
+        } else if (labelsForSystem && !assigneesForLabel) {
           labelsForSystem = makeToArray(labelsForSystem)
           labelAPI(labelsForSystem)
           console.log(
             `These labels will be added to the issue ${labelsForSystem}`
           )
-        } else if (
-          !labelsForSystem &&
-          assigneesForSystem
-        ) {
+        } else if (!labelsForSystem && assigneesForSystem) {
           assigneesForSystem = makeToArray(assigneesForSystem)
           assignUser(assigneesForSystem)
           console.log(
