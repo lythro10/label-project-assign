@@ -33048,6 +33048,9 @@ async function run() {
         let labelsForSystem = process.env[nameForLabel]
         let assigneesForSystem = process.env[assigneesForLabel]
 
+        console.log(assigneesForSystem)
+        console.log(labelsForSystem)
+
         // If both are there use this.
         if (labelsForSystem && assigneesForSystem) {
           labelsForSystem = makeToArray(labelsForSystem)
