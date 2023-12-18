@@ -68,9 +68,7 @@ async function run() {
         let labelsForSystem = process.env[nameForLabel]
         let assigneesForSystem = process.env[assigneesForLabel]
 
-        console.log(labelsForSystem)
-        console.log(assigneesForSystem)
-
+        // If both are there use this.
         if (labelsForSystem && assigneesForSystem) {
           labelsForSystem = makeToArray(labelsForSystem)
           assigneesForSystem = makeToArray(assigneesForSystem)
@@ -82,25 +80,29 @@ async function run() {
           )
           assignUser(assigneesForSystem)
           labelAPI(labelsForSystem)
+          //   If there is only label but not assignee
         } else if (labelsForSystem && !assigneesForLabel) {
           labelsForSystem = makeToArray(labelsForSystem)
           labelAPI(labelsForSystem)
           console.log(
             `These labels will be added to the issue ${labelsForSystem}`
           )
+          //   If there is no label and only assigneee
         } else if (!labelsForSystem && assigneesForSystem) {
           assigneesForSystem = makeToArray(assigneesForSystem)
           assignUser(assigneesForSystem)
           console.log(
             `These usernames will be assigned for the issue ${assigneesForSystem}`
           )
-        } else {
+        }
+        // If there are no labels or assignees defined.
+        else {
           console.log('No labels or Assignes have been inputed')
         }
-
-        // selected_system.split(',').map(s => s.trim())
       }
-    } else {
+    }
+    // Failed to get value from dropdown
+    else {
       console.log('Failed to extract the selected system from the issue body.')
     }
   } catch (error) {
