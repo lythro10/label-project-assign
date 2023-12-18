@@ -33048,9 +33048,6 @@ async function run() {
         let labelsForSystem = process.env[nameForLabel]
         let assigneesForSystem = process.env[assigneesForLabel]
 
-        console.log(assigneesForSystem)
-        console.log(labelsForSystem)
-
         // If both are there use this.
         if (assigneesForSystem && labelsForSystem) {
           labelsForSystem = makeToArray(labelsForSystem)
@@ -33064,7 +33061,7 @@ async function run() {
           assignUser(assigneesForSystem)
           labelAPI(labelsForSystem)
           //   If there is only label but not assignee
-        } else if (!assigneesForLabel && labelsForSystem) {
+        } else if (!assigneesForSystem && labelsForSystem) {
           labelsForSystem = makeToArray(labelsForSystem)
           labelAPI(labelsForSystem)
           console.log(
