@@ -33049,6 +33049,7 @@ async function run() {
         let assigneesForSystem = process.env[assigneesForLabel]
 
         console.log(labelsForSystem)
+        console.log(assigneesForSystem)
 
         if (
           !labelsForSystem === undefined &&
