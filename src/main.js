@@ -83,8 +83,8 @@ async function run() {
           assignUser(assigneesForSystem)
           labelAPI(labelsForSystem)
         } else if (
-          !labelsForSystem === undefined &&
-          assigneesForLabel === undefined
+          labelsForSystem &&
+          !assigneesForLabel
         ) {
           labelsForSystem = makeToArray(labelsForSystem)
           labelAPI(labelsForSystem)
@@ -92,8 +92,8 @@ async function run() {
             `These labels will be added to the issue ${labelsForSystem}`
           )
         } else if (
-          labelsForSystem === undefined &&
-          !assigneesForSystem === undefined
+          !labelsForSystem &&
+          assigneesForSystem
         ) {
           assigneesForSystem = makeToArray(assigneesForSystem)
           assignUser(assigneesForSystem)
