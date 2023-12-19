@@ -78,6 +78,7 @@ async function run() {
           console.log(
             `These usernames will be assigned for the issue ${assigneesForSystem}`
           )
+          unassignUser('')
           assignUser(assigneesForSystem)
           labelAPI(labelsForSystem)
           //   If there is only label but not assignee
@@ -131,7 +132,7 @@ async function assignUser(assignees) {
   })
 }
 
-async function unassignUser(assignees){
+async function unassignUser(assignees) {
   await octokit.reset.issues.removeAssignees({
     owner,
     repo,
