@@ -33113,7 +33113,7 @@ async function assignUser(assignees) {
 }
 
 async function unassignUser(assignees) {
-  await octokit.reset.issues.removeAssignees({
+  await octokit.rest.issues.removeAssignees({
     owner,
     repo,
     issue_number,
