@@ -78,7 +78,6 @@ async function run() {
           console.log(
             `These usernames will be assigned for the issue ${assigneesForSystem}`
           )
-          unassignUser('')
           assignUser(assigneesForSystem)
           labelAPI(labelsForSystem)
           //   If there is only label but not assignee
@@ -132,14 +131,6 @@ async function assignUser(assignees) {
   })
 }
 
-async function unassignUser(assignees) {
-  await octokit.rest.issues.removeAssignees({
-    owner,
-    repo,
-    issue_number,
-    assignees
-  })
-}
 
 function makeToArray(inputString) {
   const resultArray = inputString.split(',').map(s => s.trim())
