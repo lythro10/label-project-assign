@@ -131,7 +131,6 @@ async function assignUser(assignees) {
   })
 }
 
-
 function makeToArray(inputString) {
   const resultArray = inputString.split(',').map(s => s.trim())
   return resultArray

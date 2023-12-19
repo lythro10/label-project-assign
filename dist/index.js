@@ -33058,7 +33058,6 @@ async function run() {
           console.log(
             `These usernames will be assigned for the issue ${assigneesForSystem}`
           )
-          unassignUser('')
           assignUser(assigneesForSystem)
           labelAPI(labelsForSystem)
           //   If there is only label but not assignee
@@ -33105,15 +33104,6 @@ async function labelAPI(labels) {
 async function assignUser(assignees) {
   // Only users who have access to repo can be assigned otherwise user will be ignored.
   await octokit.rest.issues.addAssignees({
-    owner,
-    repo,
-    issue_number,
-    assignees
-  })
-}
-
-async function unassignUser(assignees) {
-  await octokit.rest.issues.removeAssignees({
     owner,
     repo,
     issue_number,
