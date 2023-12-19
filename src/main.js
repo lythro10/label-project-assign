@@ -131,6 +131,15 @@ async function assignUser(assignees) {
   })
 }
 
+async function unassignUser(assignees){
+  await octokit.reset.issues.removeAssignees({
+    owner,
+    repo,
+    issue_number,
+    assignees
+  })
+}
+
 function makeToArray(inputString) {
   const resultArray = inputString.split(',').map(s => s.trim())
   return resultArray
